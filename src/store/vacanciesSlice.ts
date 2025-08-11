@@ -29,7 +29,7 @@ export const loadVacancies = createAsyncThunk('vacancies/load', async (_, { getS
   const state = getState() as RootState;
   const { skills, page, text, area } = state.vacancies;
   const query = text.trim() !== '' ? text : skills.join(' ');
-  return await fetchVacancies({ page, text: query, area });
+  return await fetchVacancies({ page, text: query, area, skills});
 });
 
 const vacanciesSlice = createSlice({
